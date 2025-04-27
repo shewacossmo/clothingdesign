@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHEWA'S FASHION | Women's Clothing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gallery-item {
+            transition: all 0.3s ease;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+        .modal img {
+            max-width: 90%;
+            max-height: 90%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        .modal span {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .text-4xl { font-size: 2rem; }
+            .text-5xl { font-size: 2.5rem; }
+            .h-96 { height: 24rem; }
+            .py-16 { padding-top: 4rem; padding-bottom: 4rem; }
+        }
+    </style>
+</head>
+<body class="font-sans bg-white text-gray-800">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm py-4 px-6 sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto flex justify-between items-center">
+            <div class="text-xl md:text-2xl font-light tracking-wider">SHEWA'S FASHION</div>
+            <div class="hidden md:flex space-x-8">
+                <a href="#" class="hover:text-gray-600 transition">Home</a>
+                <a href="#" class="hover:text-gray-600 transition">Collections</a>
+                <a href="#" class="hover:text-gray-600 transition">About</a>
+                <a href="#" class="hover:text-gray-600 transition">Contact</a>
+            </div>
+            <div class="flex space-x-4">
+                <a href="#" class="hover:text-gray-600 transition"><i class="fas fa-search"></i></a>
+                <a href="#" class="hover:text-gray-600 transition"><i class="fas fa-shopping-bag"></i></a>
+                <button id="menu-btn" class="md:hidden"><i class="fas fa-bars"></i></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden bg-white shadow-lg w-full py-4 px-6">
+        <a href="#" class="block hover:text-gray-600 transition mb-2">Home</a>
+        <a href="#" class="block hover:text-gray-600 transition mb-2">Collections</a>
+        <a href="#" class="block hover:text-gray-600 transition mb-2">About</a>
+        <a href="#" class="block hover:text-gray-600 transition">Contact</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative h-96 bg-gray-100 flex items-center justify-center">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-5xl font-light mb-4">Ethiopian Elegance, Modern Style</h1>
+            <p class="text-lg mb-8 max-w-2xl mx-auto">Discover our curated collection of women's fashion designed for the contemporary Ethiopian woman.</p>
+            <button class="bg-black text-white px-8 py-3 hover:bg-gray-800 transition">View Collections</button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="py-16 px-4">
+        <div class="max-w-6xl mx-auto">
+            <h2 class="text-3xl font-light text-center mb-12">Our Collections</h2>
+            <!-- Gallery Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12" id="gallery">
+                <!-- Gallery items will be added here by JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black text-white py-12 px-4">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+                <h3 class="text-xl font-light mb-4">SHEWA'S FASHION</h3>
+                <p class="text-gray-400">Ethiopian fashion for the modern woman.</p>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4 font-light">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Home</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Collections</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="text-lg mb-4 font-light">Contact Us</h4>
+                <address class="not-italic text-gray-400">
+                    <p><i class="fas fa-map-marker-alt mr-2"></i> Maraki Campus, Gondar, Ethiopia</p>
+                    <p class="mt-2"><i class="fas fa-phone mr-2"></i> 0923864110</p>
+                    <p class="mt-2"><i class="fas fa-envelope mr-2"></i> shewa.hailu@gmail.com</p>
+                </address>
+                <div class="mt-4 flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition"><i class="fab fa-telegram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-12 pt-6 border-t border-gray-800 text-center text-gray-400 text-sm">
+            <p>&copy; 2023 SHEWA'S FASHION. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="image-modal" class="modal">
+        <span id="close-modal">&times;</span>
+        <img id="modal-image" src="" alt="Zoomed Image">
+    </div>
+
+    <script>
+        // Sample gallery images (would be replaced with actual product images)
+        const sampleImages = [
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 1.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 2.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 3.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 4.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 5.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 6.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 7.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 8.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 9.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 10.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 11.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 12.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 13.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 14.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 15.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 16.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 17.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 18.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 19.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 20.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 21.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 22.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 23.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 24.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 25.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 26.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 27.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 28.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 29.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 30.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 31.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 32.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 33.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 34.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 35.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 36.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 37.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 38.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 39.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 40.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 41.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 42.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 43.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 44.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 45.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 46.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 47.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 48.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 49.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 50.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 51.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 52.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 53.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 54.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 55.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 56.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 57.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 58.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 59.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 60.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 61.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 62.jpg',
+            'https://raw.githubusercontent.com/shewacossmo/clothingdesign/refs/heads/main/Image 63.jpg'
+        ];
+
+        // Populate gallery with sample images
+        const gallery = document.getElementById('gallery');
+        sampleImages.forEach(img => {
+            const item = document.createElement('div');
+            item.className = 'gallery-item rounded overflow-hidden';
+            item.innerHTML = `
+                <img src="${img}" alt="Fashion item" class="w-full h-80 object-cover cursor-pointer">
+                <div class="p-4 bg-white">
+                    <h3 class="font-light">Collection Item</h3>
+                </div>
+            `;
+            gallery.appendChild(item);
+
+            // Add click event to zoom image
+            const image = item.querySelector('img');
+            image.addEventListener('click', () => openModal(image.src));
+        });
+
+        // Mobile menu toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Modal functionality
+        const modal = document.getElementById('image-modal');
+        const modalImage = document.getElementById('modal-image');
+        const closeModalBtn = document.getElementById('close-modal');
+
+        function openModal(src) {
+            modal.style.display = 'block';
+            modalImage.src = src;
+        }
+
+        closeModalBtn.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
